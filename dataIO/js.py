@@ -112,7 +112,7 @@ def load(abspath, default=None, enable_verbose=True):
     if default is None:
         default = dict()
 
-    prt("\nLoad from '%s' ..." % abspath, enable_verbose)
+    #prt("\nLoad from '%s' ..." % abspath, enable_verbose)
 
     abspath = lower_ext(str(abspath))
     is_json = is_json_file(abspath)
@@ -128,7 +128,7 @@ def load(abspath, default=None, enable_verbose=True):
     else:
         data = json.loads(compress.read_gzip(abspath).decode("utf-8"))
 
-    prt("    Complete! Elapse %.6f sec." % (time.process_time() - st), enable_verbose)
+    #prt("    Complete! Elapse %.6f sec." % (time.process_time() - st), enable_verbose)
     return data
 
 
@@ -199,7 +199,7 @@ def dump(data, abspath,
     :param enable_verbose: 默认 ``True``, 信息提示的开关, 批处理时建议关闭
     :type enable_verbose: ``布尔值``
     """
-    prt("\nDump to '%s' ..." % abspath, enable_verbose)
+    #prt("\nDump to '%s' ..." % abspath, enable_verbose)
 
     abspath = lower_ext(str(abspath))
     is_json = is_json_file(abspath)
@@ -232,7 +232,7 @@ def dump(data, abspath,
     else:
         compress.write_gzip(content, abspath)
 
-    prt("    Complete! Elapse %.6f sec." % (time.process_time() - st), enable_verbose)
+    #prt("    Complete! Elapse %.6f sec." % (time.process_time() - st), enable_verbose)
 
 
 def safe_dump(data, abspath,
