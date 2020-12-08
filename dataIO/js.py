@@ -122,13 +122,13 @@ def load(abspath, default=None, enable_verbose=True):
             default, enable_verbose)
         return default
 
-    st = time.clock()
+    st = time.process_time()
     if is_json:
         data = json.loads(textfile.read(abspath, encoding="utf-8"))
     else:
         data = json.loads(compress.read_gzip(abspath).decode("utf-8"))
 
-    prt("    Complete! Elapse %.6f sec." % (time.clock() - st), enable_verbose)
+    prt("    Complete! Elapse %.6f sec." % (time.process_time() - st), enable_verbose)
     return data
 
 
@@ -223,7 +223,7 @@ def dump(data, abspath,
         sort_keys = False
         indent = None
 
-    st = time.clock()
+    st = time.process_time()()
     js = json.dumps(data, sort_keys=sort_keys, indent=indent,
                     ensure_ascii=ensure_ascii)
     content = js.encode("utf-8")
@@ -232,7 +232,7 @@ def dump(data, abspath,
     else:
         compress.write_gzip(content, abspath)
 
-    prt("    Complete! Elapse %.6f sec." % (time.clock() - st), enable_verbose)
+    prt("    Complete! Elapse %.6f sec." % (time.process_time()() - st), enable_verbose)
 
 
 def safe_dump(data, abspath,
