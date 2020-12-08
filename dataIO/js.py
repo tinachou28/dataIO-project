@@ -223,7 +223,7 @@ def dump(data, abspath,
         sort_keys = False
         indent = None
 
-    st = time.process_time()()
+    st = time.process_time()
     js = json.dumps(data, sort_keys=sort_keys, indent=indent,
                     ensure_ascii=ensure_ascii)
     content = js.encode("utf-8")
