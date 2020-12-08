@@ -232,7 +232,7 @@ def dump(data, abspath,
     else:
         compress.write_gzip(content, abspath)
 
-    prt("    Complete! Elapse %.6f sec." % (time.process_time()() - st), enable_verbose)
+    prt("    Complete! Elapse %.6f sec." % (time.process_time() - st), enable_verbose)
 
 
 def safe_dump(data, abspath,
