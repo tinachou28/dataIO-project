@@ -118,8 +118,8 @@ def load(abspath, default=None, enable_verbose=True):
     is_json = is_json_file(abspath)
 
     if not os.path.exists(abspath):
-        prt("    File not found, use default value: %r" %
-            default, enable_verbose)
+        #prt("    File not found, use default value: %r" %
+        #    default, enable_verbose)
         return default
 
     st = time.process_time()
